@@ -1,0 +1,59 @@
+MATCH UP: PseudoContinuingAI(MicroPhantom(AStarPathFinding)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: -1  in 3640 cycles
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(MicroPhantom(AStarPathFinding)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: -1  in 5000 cycles
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(MicroPhantom(AStarPathFinding)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: 1  in 4319 cycles
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(MicroPhantom(AStarPathFinding)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: -1  in 5000 cycles
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(MicroPhantom(AStarPathFinding)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: -1  in 3120 cycles
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs PseudoContinuingAI(MicroPhantom(AStarPathFinding))
+Winner: -1  in 3770 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs PseudoContinuingAI(MicroPhantom(AStarPathFinding))
+Winner: -1  in 3870 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs PseudoContinuingAI(MicroPhantom(AStarPathFinding))
+Winner: -1  in 2990 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs PseudoContinuingAI(MicroPhantom(AStarPathFinding))
+Winner: -1  in 4460 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs PseudoContinuingAI(MicroPhantom(AStarPathFinding))
+Winner: -1  in 2990 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+PseudoContinuingAI(MicroPhantom(AStarPathFinding)) : null
+Wins: 
+0, 0, 
+1, 0, 
+Ties: 
+0, 9, 
+9, 0, 
+Loses: 
+0, 1, 
+0, 0, 
+Win average time: 
+-, -, 
+4319.0, -, 
+Tie average time: 
+-, 3871.1111111111113, 
+3871.1111111111113, -, 
+Lose average time: 
+-, 4319.0, 
+-, -, 
+
