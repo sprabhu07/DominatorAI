@@ -1,0 +1,58 @@
+MATCH UP: ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: 1  in 3717 cycles
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 281665, runs per action: 304.17386, runs per cycle: 119.806465, average time per cycle: 100.34198, max branching factor: 1019215872000
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: 1  in 2114 cycles
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 220482, runs per action: 885.4699, runs per cycle: 162.35788, average time per cycle: 100.2673, max branching factor: 123093144973968750
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: 1  in 2865 cycles
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 255770, runs per action: 541.8856, runs per cycle: 146.99425, average time per cycle: 100.34425, max branching factor: 60786738258750
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: 1  in 1835 cycles
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 229329, runs per action: 1097.268, runs per cycle: 181.00157, average time per cycle: 100.206, max branching factor: 498433531640625
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+Winner: 1  in 2166 cycles
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 253941, runs per action: 923.4218, runs per cycle: 180.1, average time per cycle: 100.21064, max branching factor: 2814200845312500
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3))
+Winner: 0  in 2673 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 287548, runs per action: 525.6819, runs per cycle: 150.78552, average time per cycle: 100.24279, max branching factor: 12460838291015625
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3))
+Winner: -1  in 4000 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 334659, runs per action: 473.35077, runs per cycle: 136.93085, average time per cycle: 100.241, max branching factor: 17915904000000
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3))
+Winner: 0  in 2627 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 295126, runs per action: 618.71277, runs per cycle: 160.13348, average time per cycle: 100.18774, max branching factor: 3677222437875000
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3))
+Winner: 0  in 2400 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 291183, runs per action: 591.8354, runs per cycle: 173.11713, average time per cycle: 3920.5447, max branching factor: 508701262392421875
+MATCH UP: PseudoContinuingAI(DominatorAI(AStarPathFinding)) vs ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3))
+Winner: 0  in 3225 cycles
+PseudoContinuingAI(DominatorAI(AStarPathFinding)) : null
+ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) : Total runs: 302329, runs per action: 447.8948, runs per cycle: 146.83293, average time per cycle: 100.22972, max branching factor: 30576476160000
+Wins: 
+0, 0, 
+9, 0, 
+Ties: 
+0, 1, 
+1, 0, 
+Loses: 
+0, 9, 
+0, 0, 
+Win average time: 
+-, -, 
+2624.6666666666665, -, 
+Tie average time: 
+-, 4000.0, 
+4000.0, -, 
+Lose average time: 
+-, 2624.6666666666665, 
+-, -, 

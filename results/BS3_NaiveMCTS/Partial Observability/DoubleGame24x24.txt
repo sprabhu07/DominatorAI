@@ -1,0 +1,20 @@
+MATCH UP: ContinuingAI(BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)) vs PseudoContinuingAI(DominatorAI(AStarPathFinding))
+
+Wins: 
+0, 0, 
+0, 0, 
+Ties: 
+0, 10, 
+10, 0, 
+Loses: 
+0, 0, 
+0, 0, 
+Win average time: 
+-, -, 
+3432.1666666666665, -, 
+Tie average time: 
+-, 4000.0, 
+4000.0, -, 
+Lose average time: 
+-, 3432.1666666666665, 
+-, -, 
