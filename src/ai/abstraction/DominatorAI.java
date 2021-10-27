@@ -28,7 +28,7 @@ public class DominatorAI extends AbstractionLayerAI {
 	UnitType lightType;
 	UnitType rangeType;
 	UnitType heavyType;
-	public static final String LIGHT_TYPE = "Light";
+	public static final String LIGHT_TYPE = "Light";             // variables for different unit types
 	public static final String HEAVY_TYPE = "Heavy";
 	public static final String RANGE_TYPE = "Ranged";
 	public static final String WORKER_TYPE = "Worker";
@@ -43,19 +43,19 @@ public class DominatorAI extends AbstractionLayerAI {
 	int noOfPlayerLightUnits;
 	int noOfPlayerRangeUnits;
 	int noOfPlayerHeavyUnits;
-	int defaultCoalitionValue = 5;
+	int defaultCoalitionValue = 5;                             
 	int noOfObservedEnemyLightUnits;
 	int noOfObservedEnemyRangeUnits;
 	int noOfObservedEnemyHeavyUnits;
 	int noOfObservedEnemyWorkerUnits;
-	Random random = new Random(4); // use seed
-	List<Unit> resourceLocations = new ArrayList<Unit>();
-	List<Unit> baseLocations = new ArrayList<Unit>();
+	Random random = new Random(4);                                 // use seed=4
+	List<Unit> resourceLocations = new ArrayList<Unit>();          // record of seen resources
+	List<Unit> baseLocations = new ArrayList<Unit>();              // record of player bases
 	boolean observedCell[][];
-	Position lastSeenEnemyPosition = new Position();
+	Position lastSeenEnemyPosition = new Position();               // last seen enemy position
 	GameState preGameState;
 	HashMap<String, Unit> positionForWorker = new HashMap<String, Unit>();
-	double phc = 0.6;
+	double phc = 0.6;                                              // hyperparameters
 	double plc = 0.4;
 	double pd = 0.5;
 	double pe1 = 0.3;
@@ -95,7 +95,7 @@ public class DominatorAI extends AbstractionLayerAI {
 	 * milliseconds); preGameState = gs.clone(); }
 	 */
 
-	class Position {
+	class Position {                         // Position class which imitates the grid
 		int x;
 		int y;
 
@@ -142,12 +142,12 @@ public class DominatorAI extends AbstractionLayerAI {
 		PhysicalGameState pgs = gs.getPhysicalGameState();
 		Player p = gs.getPlayer(player);
 
-		noOfEnemyLightUnits = Math.max(countUnits(p, pgs, LIGHT_TYPE, true), noOfObservedEnemyLightUnits);
+		noOfEnemyLightUnits = Math.max(countUnits(p, pgs, LIGHT_TYPE, true), noOfObservedEnemyLightUnits);     // decides the units count at present and previously observed units for the enemy
 		noOfEnemyHeavyUnits = Math.max(countUnits(p, pgs, HEAVY_TYPE, true), noOfObservedEnemyHeavyUnits);
 		noOfEnemyRangeUnits = Math.max(countUnits(p, pgs, RANGE_TYPE, true), noOfObservedEnemyRangeUnits);
 		noOfEnemyWorkerUnits = Math.max(countUnits(p, pgs, WORKER_TYPE, true), noOfObservedEnemyWorkerUnits);
 
-		noOfPlayerLightUnits = countUnits(p, pgs, LIGHT_TYPE, false);
+		noOfPlayerLightUnits = countUnits(p, pgs, LIGHT_TYPE, false);      // counts current player units
 		noOfPlayerHeavyUnits = countUnits(p, pgs, HEAVY_TYPE, false);
 		noOfPlayerRangeUnits = countUnits(p, pgs, RANGE_TYPE, false);
 
@@ -192,13 +192,13 @@ public class DominatorAI extends AbstractionLayerAI {
 		int minWorkers = 0;
 		int nbases = 0;
 
-		for (Unit u2 : pgs.getUnits()) {
+		for (Unit u2 : pgs.getUnits()) {                                           // count player bases
 			if (u2.getType() == baseType && u2.getPlayer() == p.getID()) {
 				nbases++;
 			}
 		}
-		minWorkers = nbases * 2 + 1;
-		for (Unit u2 : pgs.getUnits()) {
+		minWorkers = nbases * 2 + 1;                                               // determine the no of workers according to bases
+		for (Unit u2 : pgs.getUnits()) {                                           // count workers
 			if (u2.getType() == workerType) {
 				if (u2.getPlayer() != p.getID()) {
 					noOfEnemyWorkerUnits++;
@@ -208,7 +208,7 @@ public class DominatorAI extends AbstractionLayerAI {
 			}
 		}
 
-		while (nworkers < minWorkers) {
+		while (nworkers < minWorkers) {                                            // train workers when you have resources
 			if (isResourceEnoughToTrain(p, workerType)) {
 				train(u, workerType);
 			}
@@ -216,8 +216,8 @@ public class DominatorAI extends AbstractionLayerAI {
 		}
 	}
 
-	void barracksBehavior(Unit u, Player p, PhysicalGameState pgs) {
-		String type = addToCoalitions(p, pgs);
+	void barracksBehavior(Unit u, Player p, PhysicalGameState pgs) {              // train different unit tyoes
+		String type = addToCoalitions(p, pgs);                                    // check which type of unit to train
 		switch (type) {
 		case LIGHT_TYPE:
 			if (isResourceEnoughToTrain(p, lightType)) {
@@ -240,11 +240,11 @@ public class DominatorAI extends AbstractionLayerAI {
 		PhysicalGameState pgs = gs.getPhysicalGameState();
 		Unit closestEnemy = findClosestEnemy(u, pgs, p);
 
-		if (closestEnemy != null) {
+		if (closestEnemy != null) {                               // record closest enemy's position and attack
 			lastSeenEnemyPosition.setX(closestEnemy.getX());
 			lastSeenEnemyPosition.setY(closestEnemy.getY());
 			attack(u, closestEnemy);
-		} else if (gs instanceof PartiallyObservableGameState) {
+		} else if (gs instanceof PartiallyObservableGameState) {                                          // if enemy is not visible, move to last known location
 			if (lastSeenEnemyPosition.getX() != u.getX() && lastSeenEnemyPosition.getY() != u.getY()) {
 				move(u, lastSeenEnemyPosition.getX(), lastSeenEnemyPosition.getY());
 			} else {
@@ -289,7 +289,7 @@ public class DominatorAI extends AbstractionLayerAI {
 			return;
 		}
 
-		for (Unit u2 : pgs.getUnits()) {
+		for (Unit u2 : pgs.getUnits()) {                                     // record positions of player bases
 			if (u2.getType() == baseType && u2.getPlayer() == p.getID()) {
 				nbases++;
 				if (!baseLocations.contains(u2)) {
@@ -298,17 +298,17 @@ public class DominatorAI extends AbstractionLayerAI {
 			}
 		}
 
-		for (Unit u2 : pgs.getUnits()) {
+		for (Unit u2 : pgs.getUnits()) {                                        // count player barracks
 			if (u2.getType() == barracksType && u2.getPlayer() == p.getID()) {
 				nbarracks++;
 			}
 		}
 
-		updateResourcePositions(gs);
+		updateResourcePositions(gs);                                        
 
 		harvestWorkers = nbases * 2;
 
-		boolean hasScoutWorkers = workers.size() > harvestWorkers;
+		boolean hasScoutWorkers = workers.size() > harvestWorkers;                                      // divide workers into scouts and harvest workers
 
 		List<Unit> freeWorkers = hasScoutWorkers ? new LinkedList<>(workers.subList(0, harvestWorkers))
 				: new LinkedList<>(workers);
@@ -320,7 +320,7 @@ public class DominatorAI extends AbstractionLayerAI {
 		}
 
 		List<Integer> reservedPositions = new LinkedList<>();
-		if (nbases == 0 && !freeWorkers.isEmpty() && !buildBaseInProgress) {
+		if (nbases == 0 && !freeWorkers.isEmpty() && !buildBaseInProgress) {   // build base
 			// build a base:
 			if (p.getResources() >= baseType.cost + resourcesUsed) {
 				Unit u = freeWorkers.remove(0);
@@ -350,14 +350,14 @@ public class DominatorAI extends AbstractionLayerAI {
 				// System.out.println("resource added");
 			}
 
-			if (closestResource == null && (gs instanceof PartiallyObservableGameState)) {
+			if (closestResource == null && (gs instanceof PartiallyObservableGameState)) {  // if resource not visible
 				if (!resourceLocations.isEmpty()) {
-					Unit resource = resourceLocations.get(0);
+					Unit resource = resourceLocations.get(0);                               // check from stored locations
 					if (resource != null) {
 						move(u, resource.getX(), resource.getY());
 					}
 				} else {
-					if (isUnitStationary(u)) {
+					if (isUnitStationary(u)) {                                              // find resources by exploring the map
 						workerPosition = findResource(u, pgs, gs);
 						move(u, workerPosition.getX(), workerPosition.getY());
 					}
@@ -367,7 +367,7 @@ public class DominatorAI extends AbstractionLayerAI {
 
 			if (closestResource != null && closestBase != null && manhattanDistance(closestResource.getX(),
 					closestResource.getY(), closestBase.getX(), closestBase.getY()) > shortestDistanceToBase
-					&& !buildBaseInProgress) {
+					&& !buildBaseInProgress) {                                                      // build a new base if the existing base is far 
 				if (p.getResources() >= baseType.cost + resourcesUsed) {
 					if (buildBase(p, pgs, u, reservedPositions, closestResource)) {
 						resourcesUsed += baseType.cost;
@@ -377,14 +377,14 @@ public class DominatorAI extends AbstractionLayerAI {
 				}
 			}
 
-			if (nbases != 0) {
-				collectResourceAndHarvest(u, closestBase, closestResource);
+			if (nbases != 0) {                                                       
+				collectResourceAndHarvest(u, closestBase, closestResource);            // harvest resources
 			}
 
 		}
 
 		for (Unit u : scouts) {
-			scoutEnemy(u, p, pgs, gs);
+			scoutEnemy(u, p, pgs, gs);                            // scouts find enemy
 		}
 
 	}
@@ -407,7 +407,7 @@ public class DominatorAI extends AbstractionLayerAI {
 			while (resourceIterator.hasNext()) {
 				Unit resource = resourceIterator.next();
 				if (pogs.observable(resource.getX(), resource.getY()) && gs.getUnit(resource.getID()) == null) {
-					resourceIterator.remove();
+					resourceIterator.remove();                                                                    // remove resource if empty
 					// System.out.println("resource removed");
 				}
 			}
@@ -469,12 +469,12 @@ public class DominatorAI extends AbstractionLayerAI {
 	}
 
 	String findMaxCoalition() {
-		int heavyValue = getCoalitionValue(noOfPlayerRangeUnits, noOfPlayerHeavyUnits, noOfEnemyHeavyUnits);
+		int heavyValue = getCoalitionValue(noOfPlayerRangeUnits, noOfPlayerHeavyUnits, noOfEnemyHeavyUnits); // calculate coalition values
 		int lightValue = getCoalitionValue(noOfPlayerHeavyUnits, noOfPlayerLightUnits, noOfEnemyLightUnits);
 		int rangeValue = getCoalitionValue(noOfPlayerLightUnits, noOfPlayerRangeUnits, noOfEnemyRangeUnits);
 
 		double rValue = random.nextDouble();
-		if (heavyValue < lightValue && heavyValue < rangeValue) {
+		if (heavyValue < lightValue && heavyValue < rangeValue) {            // decide on the unit type to produce based on these values.
 			if (rValue < phc) {
 				return RANGE_TYPE;
 			}
@@ -500,7 +500,7 @@ public class DominatorAI extends AbstractionLayerAI {
 		}
 	}
 
-	int getCoalitionValue(int effectiveUnit, int sameUnit, int enemyUnit) {
+	int getCoalitionValue(int effectiveUnit, int sameUnit, int enemyUnit) { // if there is no enemy, the value is default. Otherwise, its calculated
 		if (enemyUnit == 0) {
 			return defaultCoalitionValue;
 		}
@@ -527,14 +527,14 @@ public class DominatorAI extends AbstractionLayerAI {
 		return noOfUnits;
 	}
 
-	boolean isResourceEnoughToTrain(Player p, UnitType unitType) {
+	boolean isResourceEnoughToTrain(Player p, UnitType unitType) { // check if you have enough resources
 		if (p.getResources() > (unitType.cost)) {
 			return true;
 		}
 		return false;
 	}
 
-	void scoutEnemy(Unit unit, Player p, PhysicalGameState pgs, GameState gs) {
+	void scoutEnemy(Unit unit, Player p, PhysicalGameState pgs, GameState gs) {                  
 		noOfObservedEnemyLightUnits = Math.max(countUnits(p, pgs, LIGHT_TYPE, true), noOfObservedEnemyLightUnits);
 		noOfObservedEnemyHeavyUnits = Math.max(countUnits(p, pgs, HEAVY_TYPE, true), noOfObservedEnemyHeavyUnits);
 		noOfObservedEnemyRangeUnits = Math.max(countUnits(p, pgs, RANGE_TYPE, true), noOfObservedEnemyRangeUnits);
@@ -556,7 +556,7 @@ public class DominatorAI extends AbstractionLayerAI {
 		Position position = new Position();
 		if (!baseLocations.isEmpty()) {
 			Unit base = baseLocations.get(0);
-			double rValue = random.nextDouble();
+			double rValue = random.nextDouble();  
 			if (rValue < 0.25) {
 				position.setX(pgs.getWidth() - base.getX() - 1);
 				position.setY(base.getY());
